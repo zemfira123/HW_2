@@ -4,9 +4,10 @@ class Ingrigient:
         self.quantity=quantity
         self.unit=unit
     @property
-    def get_quantity(self):
+    def quantity(self):
         return self.quantity
-    def setting_quantity(self, value):
+    @quantity.setter
+    def quantity(self, value):
         if value<=0:
             raise ValueError("Количество должно быть положительным")
         self.quantity=float(value)
@@ -18,7 +19,7 @@ class Ingrigient:
         if type(other)!=Ingrigient:
             return False
         return self.name==other.name and self.unit==other.unit
-    
+
 
 
 
